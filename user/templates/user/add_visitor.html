@@ -1,0 +1,59 @@
+{% extends 'visitors_management/base.html' %}
+
+{% block content %}
+    <div class="container p-5">
+        <h1 class="text-center">New Visitor</h1>
+
+        <form>
+          <div class="row">
+              <div class="co-sm-12 col-md-12 col-lg-6" align="center">
+                  <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/webcam.png"
+                        class="co-sm-12 col-md-12 col-lg-6 border mt-3 mb-2">
+                  <button class="btn btn-outline-muted co-sm-12 col-md-12 col-lg-6">Take Picture</button>
+              </div>
+
+              <div class="co-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group">
+                    <label class="">Visitor Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Full Name">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Select Company</label>
+                    <select class="form-control" id="company_ddl">
+                      <option value="">-------- Select One --------</option>
+                      <option value="Wipro India Pvt. Ltd.">Wipro India Pvt. Ltd.</option>
+                      <option value="Infosys Pvt. Ltd.">Infosys Pvt. Ltd.</option>
+                      <option value="Neoquant Softaware Solutions Pvt. Ltd.">Neoquant Softaware Solutions Pvt. Ltd.</option>
+                      <option value="Equations Work IT Pvt. Ltd.">Equations Work IT Pvt. Ltd.</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  {% if company_ddl.value == 'Other' %}
+                  <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Company Name">
+                  </div>
+                  {% endif %}
+
+                  <div class="form-group">
+                    <label>Company Email:</label>
+                    <input type="email" class="form-control" placeholder="name@company.com">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Purpose Of Visit</label>
+                    <textarea class="form-control" rows="3" placeholder="Write Purpose Within 20 Words"></textarea>
+                  </div>
+
+                  <div class="form-group" align="right">
+                      <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+
+               </div>
+          </div>
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'visitors_management/base.html' %}
+
+{% block content %}
+
+    <table align="center" class="mt-5">
+        <tr>
+          <td rowspan="5" class="pr-5">
+              <img src="https://pngimage.net/wp-content/uploads/2018/05/default-user-profile-image-png-6.png" height="150px">
+          </td>
+          <td>
+              <h3>{{visitors_detail.visitor_name}}</h3>
+              <p><b>Employee Id:</b> {{visitors_detail.employee_id}}</p>
+              <p><b>Company Name:</b> {{visitors_detail.company}}</p>
+              <p><b>Purpose of Visit:</b> {{visitors_detail.purpose}}</p>
+              <p><b>Visit Date:</b> {{visitors_detail.visit_date}}</p>
+          </td>
+        </tr>
+    </table>
+
+{% endblock%}

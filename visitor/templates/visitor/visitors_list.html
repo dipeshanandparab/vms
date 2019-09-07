@@ -1,0 +1,52 @@
+{% extends 'visitors_management/base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="d-flex flex-row-reverse bg-secondary">
+        <form class="form-inline p-1">
+        <input class="form-control form-control-sm" type="text" placeholder="Search by Name/Company">
+        <button class="btn btn-dark btn-sm ml-2" type="submit">Search</button>
+      </form>
+    </div>
+    {% endif %}
+
+    <div class="p-2">
+        <h1><i class="fa fa-list" aria-hidden="true"></i> Visitors List </h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Sr. No.</th>
+                <th>Name</th>
+                <th>Employee Id</th>
+                <th>Company</th>
+                <th>Purpose</th>
+                <th>Date</th>
+                <th class="text-center">View Details</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if visitors_list %}
+                {% for visitors in visitors_list %}
+                  <tr>
+                    <td>{{visitors.id}}</td>
+                    <td>{{visitors.visitor_name}}</td>
+                    <td>{{visitors.employee_id}}</td>
+                    <td>{{visitors.company}}</td>
+                    <td>{{visitors.purpose}}</td>
+                    <td>{{visitors.visit_date}}</td>
+                    <td class="d-flex justify-content-center">
+                        <a href="{% url 'visitors_detail' visitors.id %}" class="btn btn-sm btn-outline-dark">
+                            <i class="fa fa-user-circle"></i>
+                        </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>No Visitor Data Present</td>
+                    </tr>
+                {% endif%}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
